@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <title>Formulario de Servicio Militar Voluntario</title>
   <style>
-    /* Fondo tipo camuflaje (puedes cambiar por otro si lo deseas) */
     body {
       font-family: Arial, sans-serif;
-      background-image: url(cam.jpg); /* patrón camo */
+      background-image: url(cam.jpg);
       background-color: #111;
       background-size: 250px;
       color: #f2f2f2;
@@ -78,8 +77,17 @@
   <h1>Formulario de Inscripción al Servicio Militar Voluntario</h1>
   <p>Con rellenar este formulario es suficiente, se te contactará.</p>
 
-  <form id="formulario" action="https://formsubmit.co/manisillojuaquin@gmail.com" method="POST">
-    
+  <form id="formulario" action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- Clave de acceso de Web3Forms -->
+    <input type="hidden" name="access_key" value="b38610f1-ac12-402f-9a4f-16bad9d44012">
+
+    <!-- Redirección personalizada -->
+    <input type="hidden" name="redirect" value="https://tupagina.com/gracias.html">
+
+    <!-- Protección anti bots -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
     <label for="nombre">Nombres completos:</label>
     <input type="text" name="nombre" required>
 
@@ -113,13 +121,9 @@
     <input type="text" name="dni" pattern="[0-9]{8}" placeholder="Ej: 12345678">
 
     <button type="submit">Enviar formulario</button>
-
-    <input type="hidden" name="_next" value="https://tupagina.com/gracias.html">
-    <input type="hidden" name="_captcha" value="false">
   </form>
 
   <script>
-    // Validación de edad por JS
     document.getElementById("formulario").addEventListener("submit", function(event) {
       const edad = parseInt(document.getElementById("edad").value);
       if (edad < 18 || edad > 27) {
