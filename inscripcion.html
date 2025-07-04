@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Servicio Militar Voluntario</title>
+  <style>
+    /* Fondo tipo camuflaje (puedes cambiar por otro si lo deseas) */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url(cam.jpg); /* patrón camo */
+      background-color: #111;
+      background-size: 250px;
+      color: #f2f2f2;
+      padding: 40px;
+    }
+
+    h1, p {
+      text-align: center;
+      color: #e0e0e0;
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #222;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #3fa34d;
+      box-shadow: 0 0 5px #3fa34d;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 20px;
+      background-color: #3fa34d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <h1>Formulario de Inscripción al Servicio Militar Voluntario</h1>
+  <p>Con rellenar este formulario es suficiente, se te contactará.</p>
+
+  <form id="formulario" action="https://formsubmit.co/manisillojuaquin@gmail.com" method="POST">
+    
+    <label for="nombre">Nombres completos:</label>
+    <input type="text" name="nombre" required>
+
+    <label for="edad">Edad (de 18 a 27 años):</label>
+    <input type="number" name="edad" id="edad" min="18" max="27" required>
+
+    <label for="antecedentes">¿Tienes antecedentes penales?</label>
+    <select name="antecedentes" required>
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="No">No</option>
+      <option value="Sí">Sí</option>
+    </select>
+
+    <label for="tatuajes">¿Tienes tatuajes?</label>
+    <select name="tatuajes" required>
+      <option value="" disabled selected>Selecciona una opción</option>
+      <option value="No">No</option>
+      <option value="Sí">Sí</option>
+    </select>
+
+    <label for="enfermedades">¿Tienes enfermedades o afecciones?</label>
+    <textarea name="enfermedades" rows="3" placeholder="Especifica si tienes alguna condición médica..." required></textarea>
+
+    <label for="origen">Lugar de origen (puede ser de cualquier parte del Perú):</label>
+    <input type="text" name="origen" required>
+
+    <label for="telefono">Número de teléfono:</label>
+    <input type="tel" name="telefono" pattern="[0-9]{9}" placeholder="Ej: 987654321" required>
+
+    <label for="dni">DNI (opcional):</label>
+    <input type="text" name="dni" pattern="[0-9]{8}" placeholder="Ej: 12345678">
+
+    <button type="submit">Enviar formulario</button>
+
+    <input type="hidden" name="_next" value="https://tupagina.com/gracias.html">
+    <input type="hidden" name="_captcha" value="false">
+  </form>
+
+  <script>
+    // Validación de edad por JS
+    document.getElementById("formulario").addEventListener("submit", function(event) {
+      const edad = parseInt(document.getElementById("edad").value);
+      if (edad < 18 || edad > 27) {
+        alert("La edad debe estar entre 18 y 27 años.");
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
